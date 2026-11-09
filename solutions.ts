@@ -19,10 +19,6 @@ function processInput(value: string | number | boolean) {
   }
 }
 
-
-
-
-
 console.log(processInput("  TypeScript  "));
 console.log(processInput(10));
 console.log(processInput(true));
@@ -35,9 +31,6 @@ function formatCoordinate(
 
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 }
-
-
-
 
 console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
 console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
@@ -56,11 +49,6 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
 
 console.log(concatenateArrays(["a", "b"], ["c", "d"]));
 console.log(concatenateArrays([1, 2], [3, 4], [5]));
-
-
-
-
-
 
 interface Course {
   title: string;
@@ -89,30 +77,64 @@ const courses = [
 
 console.log(getPopularCourses(courses, 80));
 
-
-
-
-
-
-
 function pluckValues<T, K extends keyof T>(items: T[], key: K): T[K][] {
-  const result: T[K][] = [];          
+  const result: T[K][] = [];
 
-  for (const item of items) {         
-    const value = item[key];        
+  for (const item of items) {
+    const value = item[key];
   }
 
-  return result;                      
+  return result;
 }
-
 
 const users = [
   { id: 1, name: "Rakib", role: "Admin" },
   { id: 2, name: "Sadia", role: "Editor" },
-  { id: 3, name: "Tariq", role: "Subscriber" }
+  { id: 3, name: "Tariq", role: "Subscriber" },
 ];
 
-console.log(pluckValues(users, "name"));  
-console.log(pluckValues(users, "id"));    
+console.log(pluckValues(users, "name"));
+console.log(pluckValues(users, "id"));
 
+
+
+
+
+
+
+
+
+
+class Employee {
+  protected name: string;
+  private baseSalary: number;
+
+  constructor(name: string, baseSalary: number) {
+    this.name = name;
+    this.baseSalary = baseSalary;
+  }
+
+  getDetails(): string {
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+  }
+}
+
+class Manager extends Employee {
+  private department: string;
+
+  constructor(name: string, baseSalary: number, department: string) {
+    super(name, baseSalary);
+    this.department = department;
+  }
+
+  getRoleInfo(): string {
+    return `Manager of ${this.department}: ${this.name}`;
+  }
+}
+
+
+const manager = new Manager("Alice", 50000, "Engineering");
+
+console.log(manager.getDetails());
+console.log(manager.getRoleInfo());
 
