@@ -17,7 +17,7 @@ identity("hello");
 identity(42);     
 ```
 
-একটাই function string আর number দুটোর জন্যই কাজ করে, কিন্তু return type ঠিক থাকে। কোনো `any` নেই।
+একটাই function string আর number দুটোর জন্যই কাজ করে, কিন্তু return type ঠিক থাকে। কোনো any নেই।
 
 ---Array এর সাথে Generics
 
