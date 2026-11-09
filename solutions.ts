@@ -104,7 +104,6 @@ console.log(pluckValues(users, "id"));
 
 
 
-
 class Employee {
   protected name: string;
   private baseSalary: number;
@@ -132,9 +131,51 @@ class Manager extends Employee {
   }
 }
 
-
 const manager = new Manager("Alice", 50000, "Engineering");
 
 console.log(manager.getDetails());
 console.log(manager.getRoleInfo());
 
+
+
+
+
+
+
+
+
+
+function validateAgeAsync(age: number): Promise<string> {
+  return new Promise<string>((resolve, reject) => {
+    if (age >= 18) {
+      setTimeout(() => {
+        resolve("Access Granted");
+      }, 1000);
+    } else {
+      reject(new Error("Access Denied: Must be 18 or older"));
+    }
+  });
+}
+
+
+async function test() {
+  try {
+      const result = await validateAgeAsync(20);
+      
+      console.log(result); 
+      
+  } catch (error) {
+      
+    console.log(error);
+  }
+
+  try {
+    const result = await validateAgeAsync(15);
+      console.log(result);
+      
+  } catch (error) {
+    console.log(error); 
+  }
+}
+
+test();
