@@ -9,6 +9,11 @@ console.log(multiplyValue(10));
 console.log(multiplyValue(10, 5));
 console.log(multiplyValue(7, 0));
 
+
+
+
+
+
 function processInput(value: string | number | boolean) {
   if (typeof value === "string") {
     return value.trim().toLowerCase();
@@ -24,6 +29,14 @@ console.log(processInput(10));
 console.log(processInput(true));
 console.log(processInput(false));
 
+
+
+
+
+
+
+
+
 function formatCoordinate(
   coordinate: readonly [number, number, string],
 ): string {
@@ -34,6 +47,13 @@ function formatCoordinate(
 
 console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
 console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
+
+
+
+
+
+
+
 
 function concatenateArrays<T>(...arrays: T[][]): T[] {
   const result: T[] = [];
@@ -49,6 +69,12 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
 
 console.log(concatenateArrays(["a", "b"], ["c", "d"]));
 console.log(concatenateArrays([1, 2], [3, 4], [5]));
+
+
+
+
+
+
 
 interface Course {
   title: string;
@@ -76,6 +102,15 @@ const courses = [
 ];
 
 console.log(getPopularCourses(courses, 80));
+
+
+
+
+
+
+
+
+
 
 function pluckValues<T, K extends keyof T>(items: T[], key: K): T[K][] {
   const result: T[K][] = [];
@@ -135,6 +170,8 @@ const manager = new Manager("Alice", 50000, "Engineering");
 
 console.log(manager.getDetails());
 console.log(manager.getRoleInfo());
+
+
 
 
 
