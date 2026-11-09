@@ -35,9 +35,7 @@ function formatCoordinate(
 console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
 console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
 
-
 function concatenateArrays<T>(...arrays: T[][]): T[] {
-    
   const result: T[] = [];
 
   for (const arr of arrays) {
@@ -51,3 +49,31 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
 
 console.log(concatenateArrays(["a", "b"], ["c", "d"]));
 console.log(concatenateArrays([1, 2], [3, 4], [5]));
+
+
+interface Course {
+  title: string;
+  students: number;
+  isPublished: boolean;
+}
+
+function getPopularCourses(courses: Course[], minStudents: number): Course[] {
+  const result: Course[] = [];
+
+  for (const course of courses) {
+    if (course.isPublished === true && course.students >= minStudents) {
+      result.push(course);
+    }
+  }
+
+  return result;
+}
+
+const courses = [
+  { title: "TypeScript Mastery", students: 120, isPublished: true },
+  { title: "Devops Course", students: 200, isPublished: false },
+  { title: "Basic HTML", students: 45, isPublished: true },
+  { title: "React.js Pro", students: 85, isPublished: true },
+];
+
+console.log(getPopularCourses(courses, 80));
