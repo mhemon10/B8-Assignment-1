@@ -19,6 +19,10 @@ function processInput(value: string | number | boolean) {
   }
 }
 
+
+
+
+
 console.log(processInput("  TypeScript  "));
 console.log(processInput(10));
 console.log(processInput(true));
@@ -31,6 +35,9 @@ function formatCoordinate(
 
   return `Location: ${locationName} (${latitude}, ${longitude})`;
 }
+
+
+
 
 console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
 console.log(formatCoordinate([22.35, 91.78, "Chittagong"]));
@@ -49,6 +56,10 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
 
 console.log(concatenateArrays(["a", "b"], ["c", "d"]));
 console.log(concatenateArrays([1, 2], [3, 4], [5]));
+
+
+
+
 
 
 interface Course {
@@ -70,10 +81,38 @@ function getPopularCourses(courses: Course[], minStudents: number): Course[] {
 }
 
 const courses = [
-  { title: "TypeScript Mastery", students: 120, isPublished: true },
+  { title: "JS Mastery", students: 120, isPublished: true },
   { title: "Devops Course", students: 200, isPublished: false },
   { title: "Basic HTML", students: 45, isPublished: true },
   { title: "React.js Pro", students: 85, isPublished: true },
 ];
 
 console.log(getPopularCourses(courses, 80));
+
+
+
+
+
+
+
+function pluckValues<T, K extends keyof T>(items: T[], key: K): T[K][] {
+  const result: T[K][] = [];          
+
+  for (const item of items) {         
+    const value = item[key];        
+  }
+
+  return result;                      
+}
+
+
+const users = [
+  { id: 1, name: "Rakib", role: "Admin" },
+  { id: 2, name: "Sadia", role: "Editor" },
+  { id: 3, name: "Tariq", role: "Subscriber" }
+];
+
+console.log(pluckValues(users, "name"));  
+console.log(pluckValues(users, "id"));    
+
+
